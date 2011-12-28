@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				window.divHeights = {};
+				var h2 = $('#clicky h2');
+				
+				h2.each(function(index, object){
+					var next = $(object).next();
+					divHeights[object.className] = next.height();
+					next.height(0)
+				});
+				
+				h2.click(function(event) {
+					var content = $(this).next();
+					if ( content.height() > 0 )
+						{ content.animate({ height: 0 }) }
+					else {
+						$(this).parent().children('div').animate({ height: '0px' });
+						content.animate({ height: divHeights[this.className] });
+					};
+				});
+			});
+		</script>
+		
+	<style type="text/css">
+
+	html, body, div, span, applet, object, iframe,
+	h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+	a, abbr, acronym, address, big, cite, code,
+	del, dfn, em, img, ins, kbd, q, s, samp,
+	small, strike, strong, sub, sup, tt, var,
+	b, u, i, center,
+	dl, dt, dd, ol, ul, li,
+	fieldset, form, label, legend,
+	table, caption, tbody, tfoot, thead, tr, th, td,
+	article, aside, canvas, details, embed, 
+	figure, figcaption, footer, header, hgroup, 
+	menu, nav, output, ruby, section, summary,
+	time, mark, audio, video {
+		margin: 0;
+		padding: 0;
+		border: 0;
+		font-size: 100%;
+		font: inherit;
+		vertical-align: baseline;
+	}
+	
+	article, aside, details, figcaption, figure, 
+	footer, header, hgroup, menu, nav, section {
+		display: block;
+	}
+	
+	body {
+		line-height: 1;
+	}
+	
+	ol, ul {
+		list-style: none;
+	}
+	
+	body {
+		font: 16px/1.4 "myriad-pro-1","myriad-pro-2", "Lucida Grande", Sans-Serif;
+	}
+	
+	a {
+		color: #08C;
+		text-decoration: none;
+	}
+	
+	a:visited {
+		color: #08C;
+	}
+	
+	a:hover {
+		text-decoration: underline;
+	}
+	
+	table {
+		border-collapse: collapse;
+		border-spacing: 0;
+	}
+	
+	h1 {
+		margin-top: 55px;
+		text-align: center;
+		font-size: 35px;
+		font-weight: bold;
+	}
+	
+	header, footer {
+		width: 500px;
+		margin-left: auto;
+		margin-right: auto;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		color: #a8a8a8;
+	}
+	
+	#clicky h2, #clicky div {
+		margin-right: auto;
+		margin-left: auto;
+		width: 500px;
+		padding: 10px;
+		font-size: 30px;
+		font-weight: bold;
+		cursor: pointer;
+	}
+	
+	#clicky h2 {
+		text-shadow: 0 2px 0 rgba(0, 0, 0, 0.25);
+		color: white;
+		margin-bottom: 2px;
+	}
+	
+	#clicky h2:hover {
+		opacity: 0.8
+	}
+	
+	#clicky span {
+		font-size: 20px;
+		display: block;
+	}
+	
+	#clicky div {
+		padding: 0px;
+		overflow: hidden;
+		font-size: 13px;
+		font-weight: none;
+	}
+	
+	#clicky div p {
+		padding: 10px;
+		font-weight: normal;
+	}
+	
+	#clicky .orange {
+		background-color: #F3A01E;
+	}
+	
+	#clicky .light-orange {
+		background-color: #F3CB20;
+	}
+	
+	#clicky .green {
+		background-color: #9DC425;
+	}
+	
+	#clicky .blue {
+		background-color: #4B8DB5;
+	}
+	
+	#clicky .purple {
+		background-color: #7C48B5;
+	}
+	
+	footer {
+		text-align: center;
+	}
+	
+	</style>
+	
+	</head>
+	<body>
+		<h1 class="header">Tyler Johnston</h1>
+		<header>Born again developer. Started out as a systems administrator and moved towards the Computer Science ways of life.</header>
+		<div id="clicky">
+			<h2 class="orange">
+				Gray's College Bookstore
+				<span>Rails Developer (2010 - Current)</span>
+			</h2>
+			<div>
+				<p>
+					Continued IT manager work while finding a new passion in development. Migrated all the shell scripting to Ruby. Then began working under a senior developer on multiple internal applications from an <a href="http://graysbooks.com/">online store</a> to internal inventory management.
+				</p>
+				<p>
+					Ruby, Ruby on Rails, MySQL, Postgres, jQuery, HTML5/CSS3.
+				</p>
+			</div>
+			<h2 class="light-orange">
+				Gray's College Bookstore
+				<span>IT Manager (2009 - Current)</span>
+			</h2>
+			<div>
+				<p>
+					Windows system administration with a some Linux administration. Deployed and maintained active server monitoring for both operating systems via Nagios. Hacking and developing with Python started here with Nagios command building.
+					</p>
+			</div>
+			<h2 class="green">
+				Business Technology Center
+				<span>Onsite Technician (2005 - 2009)</span>
+			</h2>
+			<div>
+				<p>
+					On site with business and in home work with consumers on primarily Windows systems.
+				</p>
+			</div>
+			<h2 class="purple">
+				Projects
+			</h2>
+			<div>
+				<p>
+					<a href="">Bookworm</a> - A gem to deal with US EAN/ISBN conversion, detection, and validation.
+				</p>
+			</div>
+		</div>
+		<footer>
+			<a href="http://www.github.com/tylerjohnst/">Github</a> | <a href="http://www.twitter.com/tyler_johnston">Twitter</a> | <a href="mailto:tylerjohnst@gmail.com">Email</a>
+		</footer>
+	</body>
+</html>
